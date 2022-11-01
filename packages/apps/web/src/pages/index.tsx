@@ -6,7 +6,7 @@ import { CheckCircle } from "phosphor-react";
 
 export default function Home() {
   return (
-    <div className="max-w-6xl min-h-screen mx-auto grid grid-cols-2 gap-28 items-center">
+    <div className="max-w-6xl min-h-screen mx-auto grid lg:grid-cols-2 gap-28 items-center px-3">
       <main>
         <Image src={logoImg} alt="NLW Copa" />
         <h1 className="mt-16 text-5xl font-bold leading-tight">
@@ -27,7 +27,7 @@ export default function Home() {
           />
           <button
             type="submit"
-            className="bg-amber-300 transition-colors hover:bg-amber-400 outline-none text-zinc-900 px-6 py-4 rounded font-bold text-sm uppercase"
+            className="bg-amber-300 transition-all hover:bg-amber-500 focus-visible:ring-2 focus-visible:ring-amber-400 outline-none text-zinc-900 px-6 py-4 rounded font-bold text-sm uppercase"
           >
             Criar meu bolão
           </button>
@@ -58,6 +58,7 @@ export default function Home() {
         src={appPreviewImg}
         alt="Dois celulares exibindo uma prévia da aplicação móvel do NLW Copa"
         quality={100}
+        className="lg:order-1 order-first lg:static absolute -z-50 inset-0 lg:brightness-100 brightness-[0.25]"
       />
     </div>
   );

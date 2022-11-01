@@ -1,0 +1,41 @@
+{
+  "extends": "expo/tsconfig.base",
+  "compilerOptions": {
+    "plugins": [
+      {
+        "name": "typescript-styled-plugin",
+        "lint": {
+          "validProperties": [
+            "aspect-ratio",
+            "elevation",
+            "margin-vertical",
+            "margin-horizontal",
+            "padding-horizontal",
+            "padding-vertical",
+            "resize-mode",
+            "shadow-color",
+            "shadow-opacity",
+            "shadow-offset",
+            "shadow-radius",
+            "text-align-vertical",
+            "tint-color"
+          ]
+        }
+      }
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "@nlw-copa/components/*": ["./src/components/*"],
+      "@nlw-copa/screens/*": ["./src/screens/*"],
+      "@nlw-copa/routes/*": ["./src/routes/*"],
+      "@nlw-copa/contexts/*": ["./src/contexts/*"],
+      "@nlw-copa/hooks/*": ["./src/hooks/*"],
+      "@nlw-copa/themes/*": ["./src/themes/*"],
+      "@nlw-copa/themes": ["./src/themes"],
+      "@nlw-copa/utils/*": ["./src/utils/*"],
+      "@nlw-copa/lib/*": ["./src/lib/*"],
+      "@nlw-copa/assets/*": ["./assets/*"]
+    },
+    "strict": true
+  }
+}

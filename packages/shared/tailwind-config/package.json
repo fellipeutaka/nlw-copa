@@ -1,0 +1,9 @@
+{
+  "name": "@nlw-copa/tailwind-config",
+  "version": "1.0.0",
+  "private": true,
+  "main": "tailwind.config.js",
+  "devDependencies": {
+    "tailwindcss": "^3.2.1"
+  }
+}

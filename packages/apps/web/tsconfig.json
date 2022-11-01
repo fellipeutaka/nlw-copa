@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -13,8 +17,41 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "incremental": true
+    "incremental": true,
+    "baseUrl": ".",
+    "paths": {
+      "@nlw-copa/components/*": [
+        "./src/components/*"
+      ],
+      "@nlw-copa/contexts/*": [
+        "./src/contexts/*"
+      ],
+      "@nlw-copa/hooks/*": [
+        "./src/hooks/*"
+      ],
+      "@nlw-copa/utils/*": [
+        "./src/utils/*"
+      ],
+      "@nlw-copa/lib/*": [
+        "./src/lib/*"
+      ],
+      "@nlw-copa/assets/*": [
+        "./src/assets/*"
+      ]
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

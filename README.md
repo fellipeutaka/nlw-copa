@@ -33,7 +33,7 @@
   <a href="#-how-to-use">How to use</a>   |   
   <a href="#-how-to-contribute">How to contribute</a>   |   
   <a href="#memo-license">License</a>   |   
-  <a href="">Live demo</a>
+  <a href="https://fellipeutaka-nlwcopa.vercel.app/">Live demo</a>
 </p>
 
 ## ℹ️ What's Next Level Week?
@@ -46,14 +46,14 @@ An online and completely free event that will help you take the next step in you
 
 - Stage 1: Base Building - ✔️
   - Starting and configuring the development environment with Node, React and React Native.
-- Stage 2: Routes - ⌛
-  - ?.
+- Stage 2: Routes - ✔️
+  - Creating API routes and connecting front-end to our backend.
 - Stage 3: Layout and UI - ⌛
-  - ?.
+  - ?
 - Stage 4: Consuming API - ⌛
-  - ?.
+  - ?
 - Stage 5: Final Round - ⌛
-  - ?.
+  - ?
 
 ## 💻 Project
 
@@ -61,6 +61,10 @@ Bolão da Copa (FIFA World Cup Sweepstake, like a predict-the-score game) is a w
 
 <h1 align="center">
     <img alt="Example" title="Example" src=".github/project.png" width="500px" />
+</h1>
+
+<h1 align="center">
+    <img alt="ERD" title="ERD" src=".github/erd.svg" width="500px" />
 </h1>
 
 ## 🚀 Technologies

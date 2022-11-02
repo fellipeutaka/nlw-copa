@@ -13,7 +13,8 @@
     "web": "yarn workspace @nlw-copa/web",
     "server": "yarn workspace @nlw-copa/server",
     "mobile": "yarn workspace @nlw-copa/mobile",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "server:start": "node build/src/server.js"
   },
   "devDependencies": {
     "eslint": "^8.0.1",

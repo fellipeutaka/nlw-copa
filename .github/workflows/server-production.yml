@@ -32,7 +32,7 @@ jobs:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
 
       - name: Push to Heroku
-        run: git init && heroku git:remote -a nlw-copa
+        run: git init && heroku git:remote -a nlw-copa && git add . && git commit -am "make it better" && git push heroku master
         env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
           HEROKU_APP_NAME: nlw-copa

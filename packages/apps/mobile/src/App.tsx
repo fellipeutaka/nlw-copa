@@ -5,6 +5,7 @@ import {
 } from "react-native-safe-area-context";
 
 import { registerRootComponent } from "expo";
+import { StatusBar } from "expo-status-bar";
 
 import { Routes } from "./routes";
 
@@ -12,6 +13,7 @@ export function App() {
   return (
     <SafeAreaProvider initialMetrics={initialWindowMetrics}>
       <GestureHandlerRootView style={{ flex: 1 }}>
+        <StatusBar backgroundColor="transparent" translucent />
         <Routes />
       </GestureHandlerRootView>
     </SafeAreaProvider>

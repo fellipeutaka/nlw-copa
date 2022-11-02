@@ -47,8 +47,10 @@ async function main() {
     return { count };
   });
 
-  await fastify.listen({ port: 3333 });
-  console.log("Server is running on port 3333");
+  const port = Number(process.env.PORT) || 3333;
+
+  await fastify.listen({ port });
+  console.log(`Server is running on port ${port}`);
 }
 
 void main();

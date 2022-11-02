@@ -3,11 +3,17 @@ import { Landing } from "@nlw-copa/screens/Landing";
 import type { GetStaticProps } from "next";
 import { SWRConfig } from "swr";
 
+interface Data {
+  data: {
+    count: number;
+  };
+}
+
 interface HomeProps {
   fallback: {
-    "/pools/count": number;
-    "/guesses/count": number;
-    "/users/count": number;
+    "/pools/count": Data;
+    "/guesses/count": Data;
+    "/users/count": Data;
   };
 }
 
@@ -30,9 +36,9 @@ export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
       fallback: {
-        "/pools/count": poolCountResponse.data.count,
-        "/guesses/count": guessCountResponse.data.count,
-        "/users/count": userCountResponse.data.count,
+        "/pools/count": poolCountResponse,
+        "/guesses/count": guessCountResponse,
+        "/users/count": userCountResponse,
       },
     },
   };

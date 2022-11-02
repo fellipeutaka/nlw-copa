@@ -17,7 +17,6 @@
     "baseUrl": ".",
     "paths": {
       "@nlw-copa/components/*": ["./src/components/*"],
-      "@nlw-copa/screens/*": ["./src/screens/*"],
       "@nlw-copa/contexts/*": ["./src/contexts/*"],
       "@nlw-copa/hooks/*": ["./src/hooks/*"],
       "@nlw-copa/utils/*": ["./src/utils/*"],
@@ -33,4 +32,3 @@
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]
 }
-

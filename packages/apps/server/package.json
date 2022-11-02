@@ -1,7 +1,6 @@
 {
   "name": "@nlw-copa/server",
   "version": "1.0.0",
-  "description": "NLW backend app",
   "main": "build/src/server.js",
   "license": "MIT",
   "private": true,

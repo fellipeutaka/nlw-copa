@@ -26,13 +26,9 @@ jobs:
       - name: Build server
         run: yarn server build
 
-      - name: Login to Heroku Container registry
-        run: heroku container:login
-        env:
-          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-
-      - name: Push to Heroku
-        run: git init && heroku git:remote -a nlw-copa && git add . && git commit -am "make it better" && git push heroku master
-        env:
-          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-          HEROKU_APP_NAME: nlw-copa
+      - name: Deploy to Heroku
+        uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+          heroku_app_name: "nlw-copa"
+          heroku_email: "fellipeutaka@gmail.com"

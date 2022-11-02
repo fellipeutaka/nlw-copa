@@ -38,7 +38,7 @@ jobs:
           HEROKU_APP_NAME: nlw-copa
 
       - name: Deploy to Heroku
-        run: git add . && git commit -am "Heroku deploy" && git push heroku master
+        run: git config --global user.email "fellipeutaka@gmail.com" && git config --global user.name "fellipeutaka" && git add . && git commit -am "Heroku deploy" && git push heroku master
         env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
           HEROKU_APP_NAME: nlw-copa

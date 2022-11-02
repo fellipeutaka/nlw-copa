@@ -8,9 +8,7 @@ import { prisma } from "./lib/prisma";
 async function main() {
   const fastify = Fastify();
 
-  await fastify.register(cors, {
-    origin: true,
-  });
+  await fastify.register(cors);
 
   fastify.post("/pools", async (req, res) => {
     const createPoolScheme = z.object({

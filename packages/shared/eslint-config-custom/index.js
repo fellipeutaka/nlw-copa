@@ -18,7 +18,7 @@ module.exports = {
       jsx: true,
     },
   },
-  plugins: ["react", "import-helpers", "prettier"],
+  plugins: ["import-helpers", "prettier"],
   settings: {
     react: {
       version: "detect",
@@ -65,4 +65,3 @@ module.exports = {
     JSX: "writable",
   },
 };
-

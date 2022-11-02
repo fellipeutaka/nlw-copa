@@ -1,6 +1,6 @@
 import { api } from "@nlw-copa/axios-config";
 import { Landing } from "@nlw-copa/screens/Landing";
-import { GetStaticProps } from "next";
+import type { GetStaticProps } from "next";
 import { SWRConfig } from "swr";
 
 interface HomeProps {
@@ -35,6 +35,5 @@ export const getStaticProps: GetStaticProps = async () => {
         "/users/count": userCountResponse.data.count,
       },
     },
-    revalidate: 1 * 60, // 1 minute
   };
 };

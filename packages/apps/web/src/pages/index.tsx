@@ -13,13 +13,12 @@ import type { GetStaticProps } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import { CheckCircle } from "phosphor-react";
-import { SWRConfig } from "swr";
 
 interface HomeProps {
   fallback: {
-    "/pools/count": number;
-    "/guesses/count": number;
-    "/users/count": number;
+    pools: number;
+    guesses: number;
+    users: number;
   };
 }
 
@@ -31,9 +30,21 @@ export default function Home({ fallback }: HomeProps) {
   const poolTitleRef = useRef<HTMLInputElement>(null);
   const { toastRef, showToast } = useToast();
 
-  const pool = useFetch<Count>("/pools/count");
-  const guesses = useFetch<Count>("/guesses/count");
-  const users = useFetch<Count>("/users/count");
+  const pool = useFetch<Count>("/pools/count", {
+    fallbackData: {
+      count: fallback.pools,
+    },
+  });
+  const guesses = useFetch<Count>("/guesses/count", {
+    fallbackData: {
+      count: fallback.guesses,
+    },
+  });
+  const users = useFetch<Count>("/users/count", {
+    fallbackData: {
+      count: fallback.users,
+    },
+  });
 
   async function handleCreatePool(e: FormEvent) {
     e.preventDefault();
@@ -77,7 +88,7 @@ export default function Home({ fallback }: HomeProps) {
   }
 
   return (
-    <SWRConfig value={{ fallback: { count: fallback } }}>
+    <>
       <div className="max-w-6xl min-h-screen mx-auto grid lg:grid-cols-2 gap-28 items-center px-3">
         <Head>
           <title>NLW Copa</title>
@@ -142,7 +153,7 @@ export default function Home({ fallback }: HomeProps) {
         />
       </div>
       <Toast ref={toastRef} />
-    </SWRConfig>
+    </>
   );
 }
 
@@ -157,9 +168,9 @@ export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
       fallback: {
-        "/pools/count": poolCountResponse.data.count,
-        "/guesses/count": guessCountResponse.data.count,
-        "/users/count": userCountResponse.data.count,
+        pools: poolCountResponse.data.count,
+        guesses: guessCountResponse.data.count,
+        users: userCountResponse.data.count,
       },
     },
     revalidate: 1 * 60, // 1 minute

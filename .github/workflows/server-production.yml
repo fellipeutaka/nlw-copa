@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main
+    paths:
+      - "packages/apps/server/**"
 
 jobs:
   build-and-deploy:

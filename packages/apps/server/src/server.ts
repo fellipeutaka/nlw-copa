@@ -5,10 +5,16 @@ import { z } from "zod";
 
 import { prisma } from "./lib/prisma";
 
-async function main() {
-  const fastify = Fastify();
+const logger = Boolean(process.env.LOGGER) || false;
 
-  await fastify.register(cors);
+async function main() {
+  const fastify = Fastify({
+    logger,
+  });
+
+  await fastify.register(cors, {
+    origin: "*",
+  });
 
   fastify.post("/pools", async (req, res) => {
     const createPoolScheme = z.object({

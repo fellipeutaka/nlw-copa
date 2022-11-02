@@ -99,12 +99,7 @@ export default function Home({ fallback }: HomeProps) {
             Crie seu próprio bolão da copa e compartilhe entre amigos!
           </h1>
           <div className="mt-10 flex items-center gap-2">
-            <Image
-              src={usersAvatarExampleImg}
-              alt="NLW Copa"
-              quality={100}
-              placeholder="blur"
-            />
+            <Image src={usersAvatarExampleImg} alt="NLW Copa" quality={100} />
             <strong className="text-zinc-100 font-bold lg:text-xl text-lg leading-8">
               <span className="text-green-600">+{users.data?.count}</span>{" "}
               pessoas já estão usando
@@ -148,7 +143,6 @@ export default function Home({ fallback }: HomeProps) {
           alt="Dois celulares exibindo uma prévia da aplicação móvel do NLW Copa"
           quality={100}
           priority
-          placeholder="blur"
           className="lg:order-1 order-first lg:static absolute -z-50 inset-0 lg:brightness-100 brightness-[0.25]"
         />
       </div>

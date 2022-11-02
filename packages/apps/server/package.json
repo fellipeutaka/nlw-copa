@@ -1,11 +1,13 @@
 {
   "name": "@nlw-copa/server",
   "version": "1.0.0",
-  "main": "build/server.js",
+  "main": "build/src/server.js",
   "license": "MIT",
   "private": true,
   "scripts": {
-    "dev": "tsx watch --ignore node_modules src/server.ts"
+    "dev": "tsx watch --ignore node_modules src/server.ts",
+    "start": "node build/src/server.js",
+    "build": "tsc"
   },
   "prisma": {
     "seed": "tsx prisma/seed.ts"

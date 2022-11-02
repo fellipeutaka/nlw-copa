@@ -11,9 +11,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - uses: akhileshns/heroku-deploy@v3.12.12
+      - name: Deploy Server
+        uses: akhileshns/heroku-deploy@v3.12.12
         with:
           heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
           heroku_app_name: "nlw-copa"
           heroku_email: "fellipeutaka@gmail.com"
-          appdir: "packages/apps/server"
+        env:
+          HD_APP_BASE: "packages/apps/server"

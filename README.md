@@ -64,7 +64,7 @@ Bolão da Copa (FIFA World Cup Sweepstake, like a predict-the-score game) is a w
 </h1>
 
 <h1 align="center">
-    <img alt="ERD" title="ERD" src=".github/erd.svg" width="500px" />
+    <img alt="ERD" title="ERD" src=".github/ERD.svg" width="500px" />
 </h1>
 
 ## 🚀 Technologies

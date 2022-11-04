@@ -1,4 +1,4 @@
-const config = require("@nlw-copa/tailwind-config");
+const { config } = require("@nlw-copa/tailwind-config");
 
 /** @type {import("tailwindcss").Config} */
 module.exports = {

@@ -1,11 +1,14 @@
+import { SignIn } from "@nlw-copa/screens/SignIn";
 import { NavigationContainer } from "@react-navigation/native";
 
-import { App } from "./App.routes";
+import { AppRoutes } from "./App.routes";
 
 export function Routes() {
+  const isAuthenticated = !false;
+
   return (
     <NavigationContainer>
-      <App />
+      {isAuthenticated ? <AppRoutes /> : <SignIn />}
     </NavigationContainer>
   );
 }

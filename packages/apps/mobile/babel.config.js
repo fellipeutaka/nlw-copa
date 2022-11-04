@@ -18,7 +18,7 @@ module.exports = function (api) {
             "@nlw-copa/themes": "./src/themes",
             "@nlw-copa/utils": "./src/utils",
             "@nlw-copa/lib": "./src/lib",
-            "@nlw-copa/assets": "./assets",
+            "@nlw-copa/assets": "./src/assets",
           },
         },
       ],

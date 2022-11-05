@@ -48,8 +48,8 @@ An online and completely free event that will help you take the next step in you
   - Starting and configuring the development environment with Node, React and React Native.
 - Stage 2: Routes - ✔️
   - Creating API routes and connecting front-end to our backend.
-- Stage 3: Layout and UI - ⌛
-  - ?
+- Stage 3: Layout and UI - ✔️
+  - Creating some screens on mobile app.
 - Stage 4: Consuming API - ⌛
   - ?
 - Stage 5: Final Round - ⌛

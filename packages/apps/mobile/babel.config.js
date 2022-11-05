@@ -4,6 +4,7 @@ module.exports = function (api) {
     presets: ["babel-preset-expo"],
     plugins: [
       "nativewind/babel",
+      "inline-dotenv",
       [
         "module-resolver",
         {

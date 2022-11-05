@@ -7,6 +7,7 @@ import {
 import { registerRootComponent } from "expo";
 import { StatusBar } from "expo-status-bar";
 
+import { AuthProvider } from "./contexts/AuthContext";
 import { Routes } from "./routes";
 
 export function App() {
@@ -14,7 +15,9 @@ export function App() {
     <SafeAreaProvider initialMetrics={initialWindowMetrics}>
       <GestureHandlerRootView style={{ flex: 1 }}>
         <StatusBar backgroundColor="transparent" translucent />
-        <Routes />
+        <AuthProvider>
+          <Routes />
+        </AuthProvider>
       </GestureHandlerRootView>
     </SafeAreaProvider>
   );

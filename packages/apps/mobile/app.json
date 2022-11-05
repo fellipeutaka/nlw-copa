@@ -17,17 +17,22 @@
     },
     "assetBundlePatterns": ["**/*"],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.nlwcopa.app",
+      "googleServicesFile": "./assets/GoogleService-Info.plist",
+      "config": {
+        "googleSignIn": {
+          "reservedClientId": "com.googleusercontent.apps.419615904757-jh98p3p1hndiu3jrp7u2n7ib23kf28d9"
+        }
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       },
-      "package": "com.fellipeutaka.nlwcopa"
-    },
-    "web": {
-      "favicon": "./assets/favicon.png"
+      "googleServicesFile": "./assets/google-services.json",
+      "package": "com.nlwcopa.app"
     }
   }
 }

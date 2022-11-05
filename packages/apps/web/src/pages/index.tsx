@@ -16,7 +16,7 @@ import { CheckCircle } from "phosphor-react";
 
 interface HomeProps {
   fallback: {
-    pools: number;
+    polls: number;
     guesses: number;
     users: number;
   };
@@ -27,12 +27,12 @@ interface Count {
 }
 
 export default function Home({ fallback }: HomeProps) {
-  const poolTitleRef = useRef<HTMLInputElement>(null);
+  const pollTitleRef = useRef<HTMLInputElement>(null);
   const { toastRef, showToast } = useToast();
 
-  const pool = useFetch<Count>("/pools/count", {
+  const poll = useFetch<Count>("/polls/count", {
     fallbackData: {
-      count: fallback.pools,
+      count: fallback.polls,
     },
   });
   const guesses = useFetch<Count>("/guesses/count", {
@@ -46,11 +46,11 @@ export default function Home({ fallback }: HomeProps) {
     },
   });
 
-  async function handleCreatePool(e: FormEvent) {
+  async function handleCreatePoll(e: FormEvent) {
     e.preventDefault();
 
-    if (!poolTitleRef.current?.value.trim()) {
-      poolTitleRef.current?.focus();
+    if (!pollTitleRef.current?.value.trim()) {
+      pollTitleRef.current?.focus();
       showToast({
         message: "Erro",
         description: "Nome do bolão é obrigatório!",
@@ -60,12 +60,12 @@ export default function Home({ fallback }: HomeProps) {
     }
 
     try {
-      const response = await api.post("/pools", {
-        title: poolTitleRef.current.value,
+      const response = await api.post("/polls", {
+        title: pollTitleRef.current.value,
       });
 
-      if (pool.data) {
-        await pool.mutate({ count: pool.data.count + 1 });
+      if (poll.data) {
+        await poll.mutate({ count: poll.data.count + 1 });
       }
 
       await navigator.clipboard.writeText(response.data.code);
@@ -76,7 +76,7 @@ export default function Home({ fallback }: HomeProps) {
         category: "success",
       });
 
-      poolTitleRef.current.value = "";
+      pollTitleRef.current.value = "";
     } catch (err) {
       console.error(err);
       showToast({
@@ -107,9 +107,9 @@ export default function Home({ fallback }: HomeProps) {
           </div>
           <form
             className="mt-10 flex sm:flex-row flex-col gap-2"
-            onSubmit={handleCreatePool}
+            onSubmit={handleCreatePoll}
           >
-            <Input placeholder="Qual nome do seu bolão?" ref={poolTitleRef} />
+            <Input placeholder="Qual nome do seu bolão?" ref={pollTitleRef} />
             <Button type="submit">Criar meu bolão</Button>
           </form>
           <p className="mt-4 text-sm text-zinc-400 leading-relaxed sm:text-start text-center">
@@ -121,7 +121,7 @@ export default function Home({ fallback }: HomeProps) {
               <CheckCircle className="w-10 h-10 text-green-400" />
               <div className="flex flex-col gap-0.5">
                 <span className="font-bold md:text-2xl text-xl">
-                  +{pool.data?.count}
+                  +{poll.data?.count}
                 </span>
                 <span className="sm:text-base text-sm">Bolões criados</span>
               </div>
@@ -152,9 +152,9 @@ export default function Home({ fallback }: HomeProps) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const [poolCountResponse, guessCountResponse, userCountResponse] =
+  const [pollCountResponse, guessCountResponse, userCountResponse] =
     await Promise.all([
-      api.get("/pools/count"),
+      api.get("/polls/count"),
       api.get("/guesses/count"),
       api.get("/users/count"),
     ]);
@@ -162,7 +162,7 @@ export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
       fallback: {
-        pools: poolCountResponse.data.count,
+        polls: pollCountResponse.data.count,
         guesses: guessCountResponse.data.count,
         users: userCountResponse.data.count,
       },

@@ -6,13 +6,14 @@ on:
       - main
     paths:
       - "packages/apps/server/**"
+      - ".github/workflows/server-production.yml"
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
       - name: Deploy Server
         uses: akhileshns/heroku-deploy@v3.12.12
         with:

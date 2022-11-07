@@ -2,6 +2,7 @@
   "name": "@nlw-copa/server",
   "version": "1.0.0",
   "main": "build/src/server.js",
+  "description": "NLW Copa Backend",
   "license": "MIT",
   "private": true,
   "scripts": {

@@ -14,7 +14,7 @@
     "server": "yarn workspace @nlw-copa/server",
     "mobile": "yarn workspace @nlw-copa/mobile",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "heroku-postbuild": "yarn workspace @nlw-copa/server build"
+    "heroku-postbuild": "npx turbo run build --filter=server"
   },
   "devDependencies": {
     "eslint": "^8.0.1",

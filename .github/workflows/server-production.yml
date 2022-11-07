@@ -8,6 +8,7 @@ on:
       - "packages/apps/server/**"
       - "packages/shared/axios-config/**"
       - ".github/workflows/server-production.yml"
+      - "package.json"
 
 jobs:
   build-and-deploy:

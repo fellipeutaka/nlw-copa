@@ -22,12 +22,12 @@ export async function guessRoutes(fastify: FastifyInstance) {
       });
 
       const createGuessBody = z.object({
-        firstTeamPoints: z.number(),
-        secondTeamPoints: z.number(),
+        firstTeamScore: z.number(),
+        secondTeamScore: z.number(),
       });
 
       const { pollId, gameId } = createGuessParams.parse(req.params);
-      const { firstTeamPoints, secondTeamPoints } = createGuessBody.parse(
+      const { firstTeamScore, secondTeamScore } = createGuessBody.parse(
         req.body
       );
 
@@ -84,8 +84,8 @@ export async function guessRoutes(fastify: FastifyInstance) {
         data: {
           gameId,
           participantId: participant.id,
-          firstTeamPoints,
-          secondTeamPoints,
+          firstTeamScore,
+          secondTeamScore,
         },
       });
 

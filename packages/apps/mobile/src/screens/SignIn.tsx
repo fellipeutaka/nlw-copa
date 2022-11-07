@@ -6,12 +6,16 @@ import * as Button from "@nlw-copa/components/Button";
 import { useAuth } from "@nlw-copa/hooks/useAuth";
 
 export function SignIn() {
-  const { handleSignIn } = useAuth();
+  const { handleSignIn, isLoading } = useAuth();
 
   return (
     <View className="flex-1 justify-center bg-zinc-900 p-7">
       <Logo width={212} height={40} className="self-center" />
-      <Button.Root className="bg-[#DB4437] mt-12" onPress={handleSignIn}>
+      <Button.Root
+        className="bg-[#DB4437] mt-12"
+        onPress={handleSignIn}
+        isLoading={isLoading}
+      >
         <Fontisto name="google" color="white" size={20} />
         <Button.Text className="text-white ml-3">Entrar com Google</Button.Text>
       </Button.Root>

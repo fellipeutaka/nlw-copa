@@ -5,19 +5,19 @@ import { CheckCircle, Warning, WarningCircle, X } from "phosphor-react";
 
 type Category = "default" | "success" | "error" | "warning";
 
-interface ToastProps extends ToastPrimitive.ToastProps {
+type ToastProps = {
   message?: string;
   description?: string;
   category?: Category;
-}
+} & ToastPrimitive.ToastProps
 
-interface ShowProps {
+type ShowProps = {
   message: string;
   description: string;
   category?: Category;
 }
 
-export interface ToastHandles {
+export type ToastHandles = {
   show: (props?: ShowProps) => void;
 }
 

@@ -1,6 +1,7 @@
 import { Text, View } from "react-native";
 
 import * as Button from "@nlw-copa/components/Button";
+import { useNavigation } from "@react-navigation/native";
 import { MagnifyingGlass } from "phosphor-react-native";
 
 export function NoResults() {
@@ -15,10 +16,16 @@ export function NoResults() {
   );
 }
 
-export function Pools() {
+export function Polls() {
+  const navigation = useNavigation();
+
+  function handleNavigateToFind() {
+    navigation.navigate("find");
+  }
+
   return (
     <View className="flex-1 bg-zinc-900 px-5 py-6">
-      <Button.Root>
+      <Button.Root onPress={handleNavigateToFind}>
         <MagnifyingGlass size={20} weight="bold" />
         <Button.Text className="ml-2">Buscar bolão por código</Button.Text>
       </Button.Root>

@@ -1,9 +1,8 @@
 import cors from "@fastify/cors";
+import jwt from "@fastify/jwt";
 import Fastify from "fastify";
-import ShortUniqueId from "short-unique-id";
-import { z } from "zod";
 
-import { prisma } from "./lib/prisma";
+import { routes } from "./routes";
 
 const logger = Boolean(process.env.LOGGER) || false;
 
@@ -16,42 +15,12 @@ async function main() {
     origin: "*",
   });
 
-  fastify.post("/polls", async (req, res) => {
-    const createPollScheme = z.object({
-      title: z.string(),
-    });
-    const { title } = createPollScheme.parse(req.body);
-
-    const generate = new ShortUniqueId({ length: 6 });
-    const code = String(generate()).toUpperCase();
-
-    await prisma.poll.create({
-      data: {
-        title,
-        code,
-      },
-    });
-
-    return await res.status(201).send({ code });
+  await fastify.register(jwt, {
+    secret: "nlwcopa",
   });
 
-  fastify.get("/polls/count", async () => {
-    const count = await prisma.poll.count();
-
-    return { count };
-  });
-
-  fastify.get("/users/count", async () => {
-    const count = await prisma.user.count();
-
-    return { count };
-  });
-
-  fastify.get("/guesses/count", async () => {
-    const count = await prisma.guess.count();
-
-    return { count };
-  });
+  const registerRoutes = routes.map((route) => fastify.register(route));
+  await Promise.all(registerRoutes);
 
   const port = Number(process.env.PORT) || 3333;
 

@@ -8,9 +8,9 @@ import {
 
 import { clsx } from "clsx";
 
-interface ButtonProps extends TouchableWithoutFeedbackProps {
+type ButtonProps = {
   isLoading?: boolean;
-}
+} & TouchableWithoutFeedbackProps
 
 export function Root({ isLoading, disabled, children, ...props }: ButtonProps) {
   const isDisabled = disabled || isLoading;

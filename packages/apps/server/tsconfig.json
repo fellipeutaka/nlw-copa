@@ -4,8 +4,6 @@
     "module": "commonjs",
     "rootDirs": ["./src", "./prisma"],
     "outDir": "./build",
-    "baseUrl": ".",
-    "paths": {},
     "resolveJsonModule": true,
     "removeComments": true,
     "isolatedModules": false,
@@ -13,7 +11,13 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "baseUrl": "src",
+    "paths": {
+      "@nlw-copa/routes/*": ["./routes/*"],
+      "@nlw-copa/lib/*": ["./lib/*"],
+      "@nlw-copa/plugins/*": ["./plugins/*"]
+    }
   },
   "include": ["src", "prisma"],
   "exclude": ["node_modules"]

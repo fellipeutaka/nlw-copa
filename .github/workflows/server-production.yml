@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - "packages/apps/server/**"
+      - "packages/shared/axios-config/**"
       - ".github/workflows/server-production.yml"
 
 jobs:

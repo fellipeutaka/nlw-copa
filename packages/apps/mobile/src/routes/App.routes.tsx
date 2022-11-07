@@ -1,33 +1,16 @@
+import type { AppParamsList } from "@nlw-copa/@types/routes/ParamsList/AppParamsList";
 import { New } from "@nlw-copa/screens/New";
-import { Pools } from "@nlw-copa/screens/Pools";
-import { colors } from "@nlw-copa/tailwind-config";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { PlusCircle, SoccerBall } from "phosphor-react-native";
 
-const { Navigator, Screen } = createBottomTabNavigator();
+import { headerOptions } from "./headerOptions";
+import { PollStack } from "./stacks/Poll.stack";
+
+const { Navigator, Screen } = createBottomTabNavigator<AppParamsList>();
 
 export function AppRoutes() {
   return (
-    <Navigator
-      screenOptions={{
-        tabBarLabelPosition: "beside-icon",
-        tabBarActiveTintColor: colors.amber[300],
-        tabBarInactiveTintColor: colors.zinc[400],
-        tabBarStyle: {
-          height: 84,
-          borderTopWidth: 0,
-          backgroundColor: colors.zinc[800],
-        },
-        headerTintColor: "white",
-        headerTitleAlign: "center",
-        headerTitleStyle: {
-          fontSize: 16,
-        },
-        headerStyle: {
-          backgroundColor: colors.zinc[800],
-        },
-      }}
-    >
+    <Navigator screenOptions={headerOptions} initialRouteName="new">
       <Screen
         name="new"
         component={New}
@@ -40,14 +23,14 @@ export function AppRoutes() {
         }}
       />
       <Screen
-        name="pools"
-        component={Pools}
+        name="polls"
+        component={PollStack}
         options={{
           tabBarIcon: ({ color, size }) => (
             <SoccerBall color={color} size={size} />
           ),
           tabBarLabel: "Meus bolões",
-          headerTitle: "Meus bolões",
+          headerShown: false,
         }}
       />
     </Navigator>

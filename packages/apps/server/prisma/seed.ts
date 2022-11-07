@@ -8,6 +8,7 @@ async function main() {
       name: "John Doe",
       email: "johndoe@example.com",
       avatarUrl: "https://github.com/fellipeutaka.png",
+      googleId: "40028922",
     },
   });
 

@@ -14,7 +14,7 @@ import Head from "next/head";
 import Image from "next/image";
 import { CheckCircle } from "phosphor-react";
 
-interface HomeProps {
+type HomeProps = {
   fallback: {
     polls: number;
     guesses: number;
@@ -22,7 +22,7 @@ interface HomeProps {
   };
 }
 
-interface Count {
+type Count = {
   count: number;
 }
 

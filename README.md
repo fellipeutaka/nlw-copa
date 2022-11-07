@@ -74,7 +74,7 @@ This project was developed with the following technologies:
 - [TypeScript][ts]
 - [Node.js][node]
 - [Prisma][prisma]
-- [MongoDB][mongodb]
+- [SQLite][sqlite]
 - [React][react]
 - [Next.js][next]
 - [TailwindCSS][tailwind]
@@ -124,7 +124,7 @@ Made with ♥ by Fellipe Utaka 👋 [Get in touch!](https://www.linkedin.com/in/
 [figma]: https://www.figma.com/file/kwLAEZmyDB2NuvMNi87XGF/Bol%C3%A3o-da-Copa-(Community)
 [node]: https://nodejs.org/
 [prisma]: https://www.prisma.io/
-[mongodb]: https://www.mongodb.com/
+[sqlite]: https://www.sqlite.org/index.html
 [ts]: https://www.typescriptlang.org/
 [expo]: https://expo.dev/
 [react]: https://reactjs.org

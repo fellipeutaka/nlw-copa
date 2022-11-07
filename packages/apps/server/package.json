@@ -7,6 +7,7 @@
   "scripts": {
     "dev": "tsx watch --ignore node_modules src/server.ts",
     "start": "node build/src/server.js",
+    "lint": "eslint . --ext ts,tsx",
     "build": "tsc"
   },
   "prisma": {
@@ -14,6 +15,8 @@
   },
   "dependencies": {
     "@fastify/cors": "^8.1.1",
+    "@fastify/jwt": "^6.3.2",
+    "@nlw-copa/axios-config": "*",
     "@prisma/client": "^4.5.0",
     "fastify": "^4.9.2",
     "short-unique-id": "^4.4.4"

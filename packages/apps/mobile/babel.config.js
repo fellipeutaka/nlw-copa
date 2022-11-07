@@ -20,6 +20,7 @@ module.exports = function (api) {
             "@nlw-copa/utils": "./src/utils",
             "@nlw-copa/lib": "./src/lib",
             "@nlw-copa/assets": "./src/assets",
+            "@nlw-copa/@types": "./src/@types",
           },
         },
       ],

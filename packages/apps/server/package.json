@@ -23,6 +23,7 @@
   },
   "devDependencies": {
     "@mermaid-js/mermaid-cli": "^9.1.7",
+    "@types/node": "^18.11.9",
     "prisma": "^4.5.0",
     "prisma-erd-generator": "^1.2.2",
     "tsx": "^3.11.0"

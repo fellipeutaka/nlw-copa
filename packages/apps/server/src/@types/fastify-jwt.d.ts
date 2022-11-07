@@ -1,11 +1,12 @@
 import "@fastify/jwt";
 
 declare module "@fastify/jwt" {
-  type FastifyJWT = {
+  // eslint-disable-next-line @typescript-eslint/consistent-type-definitions
+  interface FastifyJWT {
     user: {
-      name: string;
-      avatarUrl: string;
       sub: string;
+      name: string;
+      avatarUrl?: string;
     };
   }
 }

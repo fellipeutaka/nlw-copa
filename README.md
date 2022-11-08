@@ -50,8 +50,8 @@ An online and completely free event that will help you take the next step in you
   - Creating API routes and connecting front-end to our backend.
 - Stage 3: Layout and UI - ✔️
   - Creating some screens on mobile app.
-- Stage 4: Consuming API - ⌛
-  - ?
+- Stage 4: Consuming API - ✔️
+  - Using axios on mobile app to fetch data from backend.
 - Stage 5: Final Round - ⌛
   - ?
 

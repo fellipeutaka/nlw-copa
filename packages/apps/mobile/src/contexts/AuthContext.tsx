@@ -25,6 +25,11 @@ type TokenResponse = {
   token: string;
 };
 
+type UserInfoResponse = {
+  user: User;
+};
+
+const redirectUri = AuthSession.makeRedirectUri({ useProxy: true });
 const clientId = process.env.GOOGLE_CLIENT_ID;
 const iosClientId = process.env.GOOGLE_IOS_CLIENT_ID;
 const androidClientId = process.env.GOOGLE_ANDROID_CLIENT_ID;
@@ -36,7 +41,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
     clientId,
     iosClientId,
     androidClientId,
-    redirectUri: AuthSession.makeRedirectUri({ useProxy: true }),
+    redirectUri,
     scopes: ["email", "profile"],
   });
 
@@ -57,14 +62,11 @@ export function AuthProvider({ children }: AuthProviderProps) {
       const tokenResponse = await api.post<TokenResponse>("/users", {
         access_token,
       });
-      const userInfoResponse = await api.get("/me", {
+      const userInfoResponse = await api.get<UserInfoResponse>("/me", {
         headers: { Authorization: `Bearer ${tokenResponse.data.token}` },
       });
-      console.log(userInfoResponse.data);
-      // setUser(userInfoResponse.data)
+      setUser(userInfoResponse.data.user);
     } catch (err) {
-      console.log(err);
-
       console.error(err);
     } finally {
       setIsLoading(false);

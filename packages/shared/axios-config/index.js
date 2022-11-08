@@ -1,10 +1,7 @@
-const axios = require("axios");
+import axios from "axios";
 
 const api = axios.create({
   baseURL: "https://nlw-copa.herokuapp.com",
 });
 
-module.exports = {
-  api,
-  axios,
-};
+export { api, axios };

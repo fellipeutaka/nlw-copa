@@ -1,1 +1,1 @@
-web: yarn workspace @nlw-copa/server start
+web: yarn server start

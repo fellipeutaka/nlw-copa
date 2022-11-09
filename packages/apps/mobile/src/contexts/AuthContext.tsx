@@ -62,9 +62,8 @@ export function AuthProvider({ children }: AuthProviderProps) {
       const tokenResponse = await api.post<TokenResponse>("/users", {
         access_token,
       });
-      const userInfoResponse = await api.get<UserInfoResponse>("/me", {
-        headers: { Authorization: `Bearer ${tokenResponse.data.token}` },
-      });
+      api.defaults.headers.common.Authorization = `Bearer ${tokenResponse.data.token}`;
+      const userInfoResponse = await api.get<UserInfoResponse>("/me");
       setUser(userInfoResponse.data.user);
     } catch (err) {
       console.error(err);

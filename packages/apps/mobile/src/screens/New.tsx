@@ -2,24 +2,33 @@ import { useState, useRef } from "react";
 import { Text, View, TextInput } from "react-native";
 
 import Logo from "@nlw-copa/assets/logo.svg";
+import { api } from "@nlw-copa/axios-config";
 import * as Button from "@nlw-copa/components/Button";
 import { KeyboardAvoidingView } from "@nlw-copa/components/KeyboardAvoidingView";
 import { TextField } from "@nlw-copa/components/TextField";
+import { useToast } from "@nlw-copa/hooks/useToast";
 
 export function New() {
   const [isLoading, setIsLoading] = useState(false);
   const [title, setTitle] = useState("");
   const inputRef = useRef<TextInput>(null);
+  const toast = useToast();
 
-  async function handleCreatePool() {
+  async function handleCreatePoll() {
     if (!title.trim()) {
-      inputRef.current?.focus();
-      return;
+      toast("Por favor, informe o nome do bolão");
+      return inputRef.current?.focus();
     }
     setIsLoading(true);
-    setTimeout(() => {
+    try {
+      await api.post("/polls", { title: title.trim() });
+      setTitle("");
+      toast("Bolão criado com sucesso");
+    } catch (err) {
+      console.error(err);
+    } finally {
       setIsLoading(false);
-    }, 1500);
+    }
   }
 
   return (
@@ -37,7 +46,7 @@ export function New() {
         />
         <Button.Root
           className="mt-2"
-          onPress={handleCreatePool}
+          onPress={handleCreatePoll}
           isLoading={isLoading}
         >
           <Button.Text>Criar meu bolão</Button.Text>

@@ -52,8 +52,8 @@ An online and completely free event that will help you take the next step in you
   - Creating some screens on mobile app.
 - Stage 4: Consuming API - ✔️
   - Using axios on mobile app to fetch data from backend.
-- Stage 5: Final Round - ⌛
-  - ?
+- Stage 5: Final Round - ✔️
+  - Finalizing the mobile app features.
 
 ## 💻 Project
 

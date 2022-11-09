@@ -1,4 +1,3 @@
-import type { AppParamsList } from "@nlw-copa/@types/routes/ParamsList/AppParamsList";
 import { New } from "@nlw-copa/screens/New";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { PlusCircle, SoccerBall } from "phosphor-react-native";
@@ -6,7 +5,7 @@ import { PlusCircle, SoccerBall } from "phosphor-react-native";
 import { headerOptions } from "./headerOptions";
 import { PollStack } from "./stacks/Poll.stack";
 
-const { Navigator, Screen } = createBottomTabNavigator<AppParamsList>();
+const { Navigator, Screen } = createBottomTabNavigator();
 
 export function AppRoutes() {
   return (

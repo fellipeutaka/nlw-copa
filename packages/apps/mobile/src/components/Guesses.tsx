@@ -22,8 +22,8 @@ export function Guesses({ pollId, code }: Props) {
   const { data, error, isLoading } = useFetch<GamesResponse>(
     `/polls/${pollId}/games`
   );
-  const [firstTeamPoints, setFirstTeamPoints] = useState("");
-  const [secondTeamPoints, setSecondTeamPoints] = useState("");
+  const [firstTeamScore, setFirstTeamScore] = useState("");
+  const [secondTeamScore, setSecondTeamScore] = useState("");
   const toast = useToast();
 
   if (error) {
@@ -32,13 +32,13 @@ export function Guesses({ pollId, code }: Props) {
 
   async function handleGuessConfirm(gameId: string) {
     try {
-      if (!firstTeamPoints.trim() || !secondTeamPoints.trim()) {
+      if (!firstTeamScore.trim() || !secondTeamScore.trim()) {
         return toast("Informe o placar para palpitar");
       }
 
-      await api.post(`/pools/${pollId}/games/${gameId}/guesses`, {
-        firstTeamPoints: Number(firstTeamPoints),
-        secondTeamPoints: Number(secondTeamPoints),
+      await api.post(`/polls/${pollId}/games/${gameId}/guesses`, {
+        firstTeamScore: Number(firstTeamScore),
+        secondTeamScore: Number(secondTeamScore),
       });
 
       toast("Palpite realizado com sucesso!");
@@ -63,8 +63,10 @@ export function Guesses({ pollId, code }: Props) {
       renderItem={({ item }) => (
         <Game
           data={item}
-          setFirstTeamPoints={setFirstTeamPoints}
-          setSecondTeamPoints={setSecondTeamPoints}
+          firstTeamScore={firstTeamScore}
+          setFirstTeamScore={setFirstTeamScore}
+          secondTeamScore={secondTeamScore}
+          setSecondTeamScore={setSecondTeamScore}
           onGuessConfirm={async () => await handleGuessConfirm(item.id)}
         />
       )}

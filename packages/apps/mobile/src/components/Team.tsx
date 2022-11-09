@@ -6,10 +6,11 @@ import { TextField } from "./TextField";
 type Props = {
   code: string;
   position: "left" | "right";
+  value: string;
   onChangeText: (value: string) => void;
 };
 
-export function Team({ code, position, onChangeText }: Props) {
+export function Team({ code, position, value, onChangeText }: Props) {
   return (
     <View className="flex-row items-center">
       {position === "left" && (
@@ -18,6 +19,7 @@ export function Team({ code, position, onChangeText }: Props) {
       <TextField
         className="w-10 h-9 text-center text-xs p-0 bg-zinc-900"
         keyboardType="numeric"
+        value={value}
         onChangeText={onChangeText}
       />
       {position === "right" && (

@@ -14,8 +14,8 @@ type GuessProps = {
   gameId: string;
   createdAt: string;
   participantId: string;
-  firstTeamPoints: number;
-  secondTeamPoints: number;
+  firstTeamScore: number;
+  secondTeamScore: number;
 };
 
 export type GameProps = {
@@ -29,14 +29,18 @@ export type GameProps = {
 type Props = {
   data: GameProps;
   onGuessConfirm: () => void;
-  setFirstTeamPoints: (value: string) => void;
-  setSecondTeamPoints: (value: string) => void;
+  firstTeamScore: string;
+  setFirstTeamScore: (value: string) => void;
+  secondTeamScore: string;
+  setSecondTeamScore: (value: string) => void;
 };
 
 export function Game({
   data,
-  setFirstTeamPoints,
-  setSecondTeamPoints,
+  firstTeamScore,
+  setFirstTeamScore,
+  secondTeamScore,
+  setSecondTeamScore,
   onGuessConfirm,
 }: Props) {
   const when = dayjs(data.date).locale(ptBR).format("DD [de] MMMM [de] YYYY");
@@ -52,13 +56,15 @@ export function Game({
         <Team
           code={data.firstTeamCountryCode}
           position="right"
-          onChangeText={setFirstTeamPoints}
+          value={firstTeamScore}
+          onChangeText={setFirstTeamScore}
         />
         <X color={colors.zinc[300]} size={24} />
         <Team
           code={data.secondTeamCountryCode}
           position="left"
-          onChangeText={setSecondTeamPoints}
+          value={secondTeamScore}
+          onChangeText={setSecondTeamScore}
         />
       </View>
       {!data.guess && (

@@ -3,13 +3,12 @@ import {
   initialWindowMetrics,
   SafeAreaProvider,
 } from "react-native-safe-area-context";
-import Toast from "react-native-toast-message";
 
 import { registerRootComponent } from "expo";
 import { StatusBar } from "expo-status-bar";
 
 import { AuthProvider } from "./contexts/AuthContext";
-import { toastConfig } from "./lib/toast";
+import { Toast } from "./lib/toast";
 import { Routes } from "./routes";
 
 export function App() {
@@ -20,7 +19,7 @@ export function App() {
         <AuthProvider>
           <Routes />
         </AuthProvider>
-        <Toast config={toastConfig} position="top" type="message" />
+        <Toast />
       </GestureHandlerRootView>
     </SafeAreaProvider>
   );

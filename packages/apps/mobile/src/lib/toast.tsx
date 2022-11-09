@@ -1,7 +1,11 @@
-import { ToastConfig } from "react-native-toast-message";
+import Root, { ToastConfig } from "react-native-toast-message";
 
-import { Toast } from "@nlw-copa/components/Toast";
+import { Toast as StyledToast } from "@nlw-copa/components/Toast";
 
-export const toastConfig: ToastConfig = {
-  message: (props) => <Toast {...props} />,
+const toastConfig: ToastConfig = {
+  message: (props) => <StyledToast {...props} />,
 };
+
+export function Toast() {
+  return <Root config={toastConfig} position="top" type="message" />;
+}
